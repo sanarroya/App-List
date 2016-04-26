@@ -15,8 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+//        APIManager.getTopTwenty()
+//            .subscribe(onNext:{ topApps in
+//                RealmOperations.writeToRealm(topApps)
+//            }, onError: { (ErrorType) in
+//                    
+//            })
+                return true
     }
 
     func applicationWillResignActive(application: UIApplication) {

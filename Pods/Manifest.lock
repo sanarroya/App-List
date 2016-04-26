@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (3.3.1)
+  - ModelRocket (1.3)
+  - Realm (0.99.0):
+    - Realm/Headers (= 0.99.0)
+  - Realm/Headers (0.99.0)
+  - RealmSwift (0.99.0):
+    - Realm (= 0.99.0)
+  - RxSwift (2.4)
+
+DEPENDENCIES:
+  - Alamofire
+  - ModelRocket
+  - RealmSwift
+  - RxSwift
+
+SPEC CHECKSUMS:
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  ModelRocket: 7f062c5822e2097107addd56250f567c596ca9da
+  Realm: cf275f109b94e5399896960c90285a043edb3d56
+  RealmSwift: f40e5634bbc74f063163561d02acc4aa040d40a5
+  RxSwift: 67b9ef4e8b34fb394e200e754c6a09cc16559f94
+
+COCOAPODS: 0.39.0
