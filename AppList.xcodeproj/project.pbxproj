@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9325C5B1CD0885B00CDE021 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9325C5A1CD0885B00CDE021 /* CategoryCollectionViewCell.swift */; };
+		D9325C5D1CD08D3900CDE021 /* Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9325C5C1CD08D3900CDE021 /* Animate.swift */; };
 		D96932421CCF27500082531F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96932411CCF27500082531F /* AppDelegate.swift */; };
 		D96932471CCF27500082531F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96932451CCF27500082531F /* Main.storyboard */; };
 		D96932491CCF27500082531F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D96932481CCF27500082531F /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		CEEB86FAF9A1A8950CD91E1B /* Pods-AppList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppList.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppList/Pods-AppList.release.xcconfig"; sourceTree = "<group>"; };
+		D9325C5A1CD0885B00CDE021 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9325C5C1CD08D3900CDE021 /* Animate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animate.swift; sourceTree = "<group>"; };
 		D969323E1CCF27500082531F /* AppList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96932411CCF27500082531F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D96932461CCF27500082531F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 			children = (
 				D96932901CCF45A50082531F /* RealmLogic.swift */,
 				D96932921CCF45B20082531F /* RealmOperations.swift */,
+				D9325C5C1CD08D3900CDE021 /* Animate.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 		D96932771CCF29250082531F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D9325C5A1CD0885B00CDE021 /* CategoryCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -456,11 +462,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D96932911CCF45A50082531F /* RealmLogic.swift in Sources */,
+				D9325C5B1CD0885B00CDE021 /* CategoryCollectionViewCell.swift in Sources */,
 				D96932931CCF45B20082531F /* RealmOperations.swift in Sources */,
 				D969327D1CCF299A0082531F /* APIManager.swift in Sources */,
 				D96932891CCF33FD0082531F /* AppPriceMapping.swift in Sources */,
 				D969327B1CCF29850082531F /* AppListRouter.swift in Sources */,
 				D96932811CCF2D7E0082531F /* CategoriesCollectionViewController.swift in Sources */,
+				D9325C5D1CD08D3900CDE021 /* Animate.swift in Sources */,
 				D96932831CCF31080082531F /* TopTwentyAppsMapping.swift in Sources */,
 				D969328F1CCF45720082531F /* AppInfo.swift in Sources */,
 				D96932871CCF33D40082531F /* AppImagesMapping.swift in Sources */,

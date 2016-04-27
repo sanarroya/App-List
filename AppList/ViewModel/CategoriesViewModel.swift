@@ -7,7 +7,16 @@
 //
 
 import Foundation
+import Realm
+import RealmSwift
 
 class CategoriesViewModel {
     
+    let categoriesDictionary: [String: Results<AppInfo>]!
+    let categories: [String]!
+    
+    init() {
+        categoriesDictionary = RealmLogic.sharedInstance.categoriesDictionary()
+        categories = Array(categoriesDictionary.keys.sort())
+    }
 }

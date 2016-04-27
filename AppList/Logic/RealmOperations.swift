@@ -13,6 +13,11 @@ import RealmSwift
 class RealmOperations {
     
     
+    /**
+     Writes apps to realm classified by category
+     
+     - parameter apps: Apps to be written
+     */
     class func writeToRealm(apps: TopTwentyAppsMapping) {
         
         var categories = [String]()
@@ -38,19 +43,31 @@ class RealmOperations {
                 for app in apps.apps.values {
                     
                     if(app.category.value! == category) {
-                        let appInfo = AppInfo(appInfo: app)
-                        realm.add(appInfo)
-                        appsInfo.append(appInfo)
+                        let appExists = realm.objects(AppInfo).filter("name = '\(app.name.value!)'").first
+                        if (appExists == nil) {
+                            let appInfo = AppInfo(appInfo: app)
+                            realm.add(appInfo)
+                            appsInfo.append(appInfo)
+                        }
                     }
                 }
                 
-                let realmCategory = Category(name: category, apps: appsInfo)
-                realm.add(realmCategory)
+                let categoryExists = realm.objects(Category).filter("name = '\(category)'").first
+                if(categoryExists == nil) {
+                    let realmCategory = Category(name: category, apps: appsInfo)
+                    realm.add(realmCategory)
+                }
             }
         }
     }
     
-//    class func getCategories() -> Results<Category> {
-//        
-//    }
+    /**
+     Gets categories drom realm
+     
+     - returns: Categories
+     */
+    class func getCategories() -> Results<Category> {
+        let realm = try! Realm()
+        return realm.objects(Category)
+    }
 }

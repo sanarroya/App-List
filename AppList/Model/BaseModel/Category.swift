@@ -15,10 +15,6 @@ class Category: Object {
     dynamic var name = ""
     var apps = List<AppInfo>()
     
-    override static func primaryKey() -> String? {
-        return "name"
-    }
-    
     convenience init(name: String, apps: List<AppInfo>) {
         self.init()
         self.name = name

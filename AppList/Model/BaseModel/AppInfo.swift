@@ -22,7 +22,7 @@ class AppInfo: Object {
     dynamic var artistLink: String = ""
     dynamic var category: String = ""
     dynamic var link: String = ""
-
+    
     convenience init(appInfo: AppInfoMapping) {
         self.init()
         self.name = appInfo.name.value!

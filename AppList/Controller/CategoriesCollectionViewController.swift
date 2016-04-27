@@ -11,7 +11,9 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class CategoriesCollectionViewController: UICollectionViewController {
-
+    
+    private let categoriesViewModel = CategoriesViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false
@@ -30,42 +32,22 @@ class CategoriesCollectionViewController: UICollectionViewController {
     
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return categoriesViewModel.categories.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
-        
-        // Configure the cell
-        if(indexPath.row % 2 == 0) {
-            cell.layer.borderColor = UIColor.orangeColor().CGColor
-            
-            //            cell.backgroundColor = UIColor.orangeColor()
-        }else {
-            cell.layer.borderColor = UIColor.grayColor().CGColor
-            //            cell.backgroundColor = UIColor.grayColor()
-        }
-        
-        cell.layer.cornerRadius = 8.0
-        cell.layer.borderWidth = 2.0
-        cell.layer.shadowColor = cell.layer.borderColor
-        cell.layer.shadowOffset = CGSizeMake(4.00, 0)
-        cell.layer.shadowOpacity = 1.0
-        cell.layer.shadowRadius = 4.0
-        cell.layer.shadowPath = UIBezierPath(roundedRect: CGRectMake(0.0, cell.bounds.height, cell.bounds.width, 10.0), cornerRadius: 8.0).CGPath
-        cell.clipsToBounds = false
-        cell.layer.masksToBounds = false
-        
-        //        cell.clipsToBounds = true
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CategoryCollectionViewCell
+        cell.configureCellWithCategory(categoriesViewModel.categories[indexPath.row])
+        Animate.cellOnSelection(cell)
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 4.0
+        return 10.0
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 4.0
+        return 10.0
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
@@ -73,11 +55,16 @@ class CategoriesCollectionViewController: UICollectionViewController {
         case .Phone:
             return CGSizeMake(collectionView.frame.width - 20.0, 60.0)
         default:
-            let cellWidth = (collectionView.frame.width / 6.0) - 4.0
+            let cellWidth = (collectionView.frame.width / 6.0) - 20.0
             return CGSizeMake(cellWidth, cellWidth)
         }
     }
     
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print(categoriesViewModel.categories[indexPath.row])
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        Animate.cellOnSelection(cell!)
+    }
     // MARK: UICollectionViewDelegate
     
     /*

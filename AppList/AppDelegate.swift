@@ -7,21 +7,18 @@
 //
 
 import UIKit
+import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var disposeBag = DisposeBag()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-//        APIManager.getTopTwenty()
-//            .subscribe(onNext:{ topApps in
-//                RealmOperations.writeToRealm(topApps)
-//            }, onError: { (ErrorType) in
-//                    
-//            })
-                return true
+        
+        initialSetup()
+        return true
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -46,6 +43,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    private func initialSetup() {
+        APIManager.getTopTwenty()
+            .subscribe(onNext:{ topApps in
+                RealmOperations.writeToRealm(topApps)
+            }, onError: { (ErrorType) in
+                        
+        }).addDisposableTo(disposeBag)
+        
+    }
 }
 
