@@ -14,6 +14,15 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     func configureCellWithCategory(category: String) {
         self.categoryName.text = category
+        
+        switch UIDevice.currentDevice().userInterfaceIdiom {
+        case .Pad:
+            self.categoryName.font = self.categoryName.font.fontWithSize(40.0)
+            self.categoryName.textAlignment = .Center
+            break
+        default:
+            break
+        }
         configureCellLayer()
         
     }
@@ -23,12 +32,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         
         layer.cornerRadius = 8.0
         layer.borderWidth = 2.0
-        layer.borderColor = UIColor.grayColor().CGColor
-//        layer.shadowColor = layer.borderColor
-//        layer.shadowOffset = CGSizeMake(4.00, 0)
-//        layer.shadowOpacity = 1.0
-//        layer.shadowRadius = 4.0
-//        layer.shadowPath = UIBezierPath(roundedRect: CGRectMake(0.0, bounds.height, bounds.width, 10.0), cornerRadius: 8.0).CGPath
         clipsToBounds = false
         layer.masksToBounds = false
         

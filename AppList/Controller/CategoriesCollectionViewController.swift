@@ -16,7 +16,7 @@ class CategoriesCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        automaticallyAdjustsScrollViewInsets = false
+//        automaticallyAdjustsScrollViewInsets = false
         //        collectionView?.contentInset = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 40.0)
         
     }
@@ -38,7 +38,17 @@ class CategoriesCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CategoryCollectionViewCell
         cell.configureCellWithCategory(categoriesViewModel.categories[indexPath.row])
-        Animate.cellOnSelection(cell)
+        let finalCellFrame = cell.frame;
+        //check the scrolling direction to verify from which side of the screen the cell should come.
+        let translation = collectionView.panGestureRecognizer.translationInView(collectionView.superview)
+        if (translation.x > 0) {
+            cell.frame = CGRectMake(0.0, -800.0, cell.frame.width, cell.frame.height);
+        } else {
+            cell.frame = CGRectMake(0.0, -800.0, cell.frame.width, cell.frame.height);
+        }
+        UIView.animateWithDuration(4.5) {
+            cell.frame = finalCellFrame
+        }
         return cell
     }
     
@@ -55,18 +65,20 @@ class CategoriesCollectionViewController: UICollectionViewController {
         case .Phone:
             return CGSizeMake(collectionView.frame.width - 20.0, 60.0)
         default:
-            let cellWidth = (collectionView.frame.width / 6.0) - 20.0
+            let cellWidth = (collectionView.frame.width / 4.0) - 20.0
             return CGSizeMake(cellWidth, cellWidth)
         }
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print(categoriesViewModel.categories[indexPath.row])
-        let cell = collectionView.cellForItemAtIndexPath(indexPath)
-        Animate.cellOnSelection(cell!)
     }
     // MARK: UICollectionViewDelegate
     
+    override func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        Animate.cellSelected(cell!)
+    }
     /*
      // Uncomment this method to specify if the specified item should be highlighted during tracking
      override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
