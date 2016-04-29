@@ -9,6 +9,8 @@ pod 'ModelRocket'
 pod 'Alamofire'
 pod 'RealmSwift'
 pod 'RxSwift'
+pod 'Kingfisher', '~> 2.3'
+
 end
 
 target 'AppListTests' do

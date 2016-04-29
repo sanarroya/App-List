@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Kingfisher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ModelRocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,17 +42,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6C37980122C980C6905F8CB951A231C8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6CAD94930314CC6AD5DEE4C0354D4FFE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>724951A13EC3C7C92C74EB904235D876</key>
+		<key>12E2B9D793C565ED0D0862B7F1B571D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +52,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A19DB07275512311E6B4C0E51A7A8571</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CD82C62CC672A7A86D9536A6D7678846</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D936A41AD03AA20CACD03E02899A95E7</key>
+		<key>F20797B7220EC26A5A26ACCE4132631E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5E3C492C77146048EA02243C7138085</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F91226101ECE8FCFD221A3EC54481F82</key>
 		<dict>
 			<key>primary</key>
 			<true/>

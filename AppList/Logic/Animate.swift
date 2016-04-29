@@ -11,7 +11,30 @@ import UIKit
 
 class Animate {
     
-    class func cellSelected(cell: UICollectionViewCell) {
+    /**
+     <#Description#>
+     
+     - parameter cell: <#cell description#>
+     */
+    class func cellAparation(cell: UICollectionViewCell) {
+        
+        let finalCellFrame = cell.frame;
+        cell.frame = CGRectMake(Animate().cellInitialCoordinate(cell.frame.origin.x), cell.frame.origin.y, cell.frame.width, cell.frame.height)
+        UIView.animateWithDuration(0.5, delay: 0.4, options: [.CurveEaseOut, .LayoutSubviews], animations: {
+            cell.frame = finalCellFrame
+        }, completion: nil)
+//    UIView.animateWithDuration(0.5) {
+//            cell.frame = finalCellFrame
+//        }
+    }
+    
+    /**
+     <#Description#>
+     
+     - parameter cell:              <#cell description#>
+     - parameter animationFinished: <#animationFinished description#>
+     */
+    class func cellSelected(cell: UICollectionViewCell, animationFinished:() -> ()) {
         
         let currentFrame = cell.frame
         let currentLayer = cell.layer.shadowPath
@@ -34,8 +57,27 @@ class Animate {
             UIView.animateWithDuration(0.2, animations: {
                 cell.frame = currentFrame
                 cell.layer.shadowPath = currentLayer
+                animationFinished()
             })
         })
+    }
+    
+    private func cellInitialCoordinate(x: CGFloat) -> CGFloat {
         
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        
+        switch UIDevice.currentDevice().userInterfaceIdiom {
+        case .Phone:
+            
+            return -1000.0
+            
+        default:
+            if(x < screenWidth / 2) {
+                return -1000.0
+            }else {
+                return screenWidth + 1000.0
+            }
+
+        }
     }
 }

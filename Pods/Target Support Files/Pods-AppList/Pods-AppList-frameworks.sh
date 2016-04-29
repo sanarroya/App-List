@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-AppList/Alamofire.framework"
+  install_framework "Pods-AppList/Kingfisher.framework"
   install_framework "Pods-AppList/ModelRocket.framework"
   install_framework "Pods-AppList/Realm.framework"
   install_framework "Pods-AppList/RealmSwift.framework"
@@ -92,6 +93,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-AppList/Alamofire.framework"
+  install_framework "Pods-AppList/Kingfisher.framework"
   install_framework "Pods-AppList/ModelRocket.framework"
   install_framework "Pods-AppList/Realm.framework"
   install_framework "Pods-AppList/RealmSwift.framework"

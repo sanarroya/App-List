@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        initialSetup()
+//        initialSetup()
         return true
     }
 
@@ -44,12 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func initialSetup() {
-        APIManager.getTopTwenty()
-            .subscribe(onNext:{ topApps in
-                RealmOperations.writeToRealm(topApps)
-            }, onError: { (ErrorType) in
-                        
-        }).addDisposableTo(disposeBag)
         
     }
 }
