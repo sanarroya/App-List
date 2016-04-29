@@ -36,6 +36,7 @@
 		D969328F1CCF45720082531F /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D969328E1CCF45720082531F /* AppInfo.swift */; };
 		D96932911CCF45A50082531F /* RealmLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96932901CCF45A50082531F /* RealmLogic.swift */; };
 		D96932931CCF45B20082531F /* RealmOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96932921CCF45B20082531F /* RealmOperations.swift */; };
+		D98B5FEC1CD3BE7500663B33 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98B5FEB1CD3BE7400663B33 /* AppColors.swift */; };
 		E2FDFF6930FA1492FED36340 /* Pods_AppList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBAFB63F93E9D3133A2B0DD9 /* Pods_AppList.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		D969328E1CCF45720082531F /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		D96932901CCF45A50082531F /* RealmLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmLogic.swift; sourceTree = "<group>"; };
 		D96932921CCF45B20082531F /* RealmOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmOperations.swift; sourceTree = "<group>"; };
+		D98B5FEB1CD3BE7400663B33 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		DBAFB63F93E9D3133A2B0DD9 /* Pods_AppList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11FE28F2DFD9E4984A64978 /* Pods-AppList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppList/Pods-AppList.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				D91CD83D1CD33D5F00F24D5F /* AppListAppearance.swift */,
+				D98B5FEB1CD3BE7400663B33 /* AppColors.swift */,
 			);
 			path = Appearance;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				D96932811CCF2D7E0082531F /* CategoriesCollectionViewController.swift in Sources */,
 				D9325C5D1CD08D3900CDE021 /* Animate.swift in Sources */,
 				D96932831CCF31080082531F /* TopTwentyAppsMapping.swift in Sources */,
+				D98B5FEC1CD3BE7500663B33 /* AppColors.swift in Sources */,
 				D969328F1CCF45720082531F /* AppInfo.swift in Sources */,
 				D96932871CCF33D40082531F /* AppImagesMapping.swift in Sources */,
 				D91CD83A1CD32E7D00F24D5F /* AppListSplitViewController.swift in Sources */,

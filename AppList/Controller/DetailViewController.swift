@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import SafariServices
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var moreAppsButton: UIButton!
+    @IBOutlet weak var getAppButton: UIButton!
+    @IBOutlet weak var releasedDateLabel: UILabel!
+    @IBOutlet weak var appSumaryLabel: UITextView!
+    
     let detailViewModel = DetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(detailViewModel.appInfo!.name)
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        configureView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,15 +34,39 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func showAuthorApps(sender: AnyObject) {
+        openWebsiteInSafariViewControllerForURL((detailViewModel.appInfo?.artistLink)!)
     }
-    */
 
+    @IBAction func getApp(sender: AnyObject) {
+        openWebsiteInSafariViewControllerForURL((detailViewModel.appInfo?.link)!)
+    }
+    
+    private func configureView() {
+        
+        logoImageView.kf_setImageWithURL(NSURL(string: (detailViewModel.appInfo?.largeImage)!)!, placeholderImage: nil, optionsInfo: nil)
+        logoImageView.layer.cornerRadius = 8.0 
+        nameLabel.text = detailViewModel.appInfo?.name
+        moreAppsButton.setTitle("More apps from " + (detailViewModel.appInfo?.artistName)!, forState: .Normal)
+        releasedDateLabel.text = "Released date: " + (detailViewModel.appInfo?.releaseDate)!
+        appSumaryLabel.text = detailViewModel.appInfo?.summary
+        
+    }
+    
+    /**
+     Presents the desired url in a Safari View Controller
+     
+     - parameter item: URL to be presented
+     */
+    private func openWebsiteInSafariViewControllerForURL(urlString: String) {
+        UIApplication.sharedApplication().openURL(NSURL(string: urlString)!)
+    }
+}
+
+extension DetailViewController: AppSelectionDelegate {
+    func appSelected(app: AppInfo) {
+        detailViewModel.appInfo = app
+        print("delegate")
+        configureView()
+    }
 }

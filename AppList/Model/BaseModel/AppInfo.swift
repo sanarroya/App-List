@@ -18,6 +18,7 @@ class AppInfo: Object {
     dynamic var largeImage: String = ""
     dynamic var summary: String = ""
     dynamic let price: String = "Free"
+    dynamic var releaseDate: String = ""
     dynamic var artistName: String = ""
     dynamic var artistLink: String = ""
     dynamic var category: String = ""
@@ -30,6 +31,7 @@ class AppInfo: Object {
         self.mediumImage = appInfo.image.values[1].link.value!
         self.largeImage = appInfo.image.values[2].link.value!
         self.summary = appInfo.summary.value!
+        self.releaseDate = appInfo.releaseDate.value!
         self.artistName = appInfo.artist.value!.name.value!
         self.artistLink = appInfo.artist.value!.portfolio.value!
         self.category = appInfo.category.value!

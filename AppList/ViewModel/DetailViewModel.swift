@@ -11,4 +11,5 @@ import Foundation
 class DetailViewModel {
     
     var appInfo: AppInfo?
+
 }

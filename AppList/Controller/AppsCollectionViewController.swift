@@ -8,19 +8,24 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+protocol AppSelectionDelegate: class {
+    func appSelected(app: AppInfo)
+}
+
 
 class AppsCollectionViewController: UICollectionViewController {
 
     let appsViewModel = AppsViewModel()
+    private let reuseIdentifier = "Cell"
+    static var delegate : AppSelectionDelegate!
+    var detailViewController: DetailViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let backButton = UIBarButtonItem(image: UIImage(named: "back"), style: .Plain, target: self, action: #selector(goBack))
         navigationItem.leftBarButtonItem = backButton
-//        let splitViewController = navigationController?.parentViewController as! AppListSplitViewController
-//        let detailViewController = splitViewController.childViewControllers[1] as! DetailViewController
-//        detailViewController.detailViewModel.appInfo = appsViewModel.currentApps[0]
+        let appSplitViewController = splitViewController as! AppListSplitViewController
+        detailViewController = appSplitViewController.childViewControllers.last as! DetailViewController
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +61,15 @@ class AppsCollectionViewController: UICollectionViewController {
         Animate.cellAparation(cell)
         return cell
     }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let selectedApp = appsViewModel.currentApps[indexPath.row]
+        AppsCollectionViewController.delegate.appSelected(selectedApp)
+        print("algo")
+        let appSplitViewController = splitViewController as! AppListSplitViewController
+        appSplitViewController.showDetailViewController(detailViewController!, sender: nil)
+    }
+    
 
     func goBack() {
         self.performSegueWithIdentifier("goBack", sender: nil)
