@@ -64,9 +64,10 @@ class AppsCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let selectedApp = appsViewModel.currentApps[indexPath.row]
-        AppsCollectionViewController.delegate.appSelected(selectedApp)
+//        AppsCollectionViewController.delegate.appSelected(selectedApp)
         print("algo")
         let appSplitViewController = splitViewController as! AppListSplitViewController
+        detailViewController?.detailViewModel.appInfo = selectedApp
         appSplitViewController.showDetailViewController(detailViewController!, sender: nil)
     }
     

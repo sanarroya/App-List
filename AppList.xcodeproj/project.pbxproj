@@ -377,6 +377,7 @@
 				TargetAttributes = {
 					D969323D1CCF27500082531F = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = CD94MQTQ3X;
 					};
 					D96932511CCF27500082531F = {
 						CreatedOnToolsVersion = 7.3;
@@ -657,6 +658,7 @@
 			baseConfigurationReference = E11FE28F2DFD9E4984A64978 /* Pods-AppList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AppList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.AppList;
@@ -669,6 +671,7 @@
 			baseConfigurationReference = CEEB86FAF9A1A8950CD91E1B /* Pods-AppList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AppList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.AppList;
