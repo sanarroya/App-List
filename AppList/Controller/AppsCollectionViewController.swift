@@ -18,6 +18,9 @@ class AppsCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         let backButton = UIBarButtonItem(image: UIImage(named: "back"), style: .Plain, target: self, action: #selector(goBack))
         navigationItem.leftBarButtonItem = backButton
+//        let splitViewController = navigationController?.parentViewController as! AppListSplitViewController
+//        let detailViewController = splitViewController.childViewControllers[1] as! DetailViewController
+//        detailViewController.detailViewModel.appInfo = appsViewModel.currentApps[0]
     }
 
     override func didReceiveMemoryWarning() {

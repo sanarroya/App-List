@@ -70,10 +70,13 @@ class CategoriesCollectionViewController: UICollectionViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "showApps") {
-            let navController = segue.destinationViewController as! AppListSplitViewController
-            let detailController = navController.childViewControllers[0].childViewControllers[0] as! AppsCollectionViewController
+            let splitViewController = segue.destinationViewController as! AppListSplitViewController
+            let appListController = splitViewController.childViewControllers.first!.childViewControllers.first as! AppsCollectionViewController
+            let detailViewController = splitViewController.childViewControllers.last as! DetailViewController
+            
             let apps = sender as! Results<AppInfo>
-            detailController.appsViewModel.currentApps = apps
+            appListController.appsViewModel.currentApps = apps
+            detailViewController.detailViewModel.appInfo = apps.first!
         }
     }
     

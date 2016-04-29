@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="1327" y="451"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="rLg-xC-smG">
             <objects>
-                <viewController id="L51-vl-GRb" sceneMemberID="viewController">
+                <viewController id="L51-vl-GRb" customClass="DetailViewController" customModule="AppList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MFS-C3-goG"/>
                         <viewControllerLayoutGuide type="bottom" id="78F-HT-lO5"/>
