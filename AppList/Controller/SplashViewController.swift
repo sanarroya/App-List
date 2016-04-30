@@ -13,8 +13,11 @@ class SplashViewController: UIViewController {
     
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var alertLabel: UILabel!
+    @IBOutlet weak var tryAgainButton: UIButton!
     
     var disposeBag = DisposeBag()
+    var doubleCheckFirstLaunch = false
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,21 +41,52 @@ class SplashViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func tryAgain(sender: AnyObject) {
+        activityIndicator.hidden = false
+        activityIndicator.startAnimating()
+        getApps()
+    }
+    
     /**
      Get apps from the API and saves it to Realm
      */
     private func getApps() {
         
-        APIManager.getTopTwenty()
-            .subscribe(onNext:{ topApps in
+        InternetConnection.checkInternetConnection { isConnected in
+            if(isConnected) {
                 
-                RealmOperations.writeToRealm(topApps)
-                let categoriesViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CategoriesNavigationBar")
-                self.presentViewController(categoriesViewController, animated: true, completion: nil)
+                APIManager.getTopTwenty()
+                    .subscribe(onNext:{ topApps in
+                        
+                        RealmOperations.writeToRealm(topApps)
+                        let categoriesViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CategoriesNavigationBar")
+                        self.presentViewController(categoriesViewController, animated: true, completion: nil)
+                        self.activityIndicator.stopAnimating()
+                        
+                        }, onError: { (ErrorType) in
+                            
+                    }).addDisposableTo(self.disposeBag)
+
+            }else {
                 self.activityIndicator.stopAnimating()
-                
-                }, onError: { (ErrorType) in
-                    
-            }).addDisposableTo(disposeBag)
+                if(Validator.isFirstLaunch() || self.doubleCheckFirstLaunch) {
+                    self.doubleCheckFirstLaunch = true
+                    self.showElements()
+                }else {
+                    let categoriesViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CategoriesNavigationBar")
+                    self.presentViewController(categoriesViewController, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    private func showElements() {
+        
+        alertLabel.text = "This app need internet the first time you run it to work correctly, please check your internet connection and try again"
+        activityIndicator.stopAnimating()
+        activityIndicator.hidden = true
+        tryAgainButton.hidden = false
+        alertLabel.hidden = false
+
     }
 }

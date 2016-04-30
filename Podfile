@@ -10,6 +10,7 @@ pod 'Alamofire'
 pod 'RealmSwift'
 pod 'RxSwift'
 pod 'Kingfisher', '~> 2.3'
+pod 'ReachabilitySwift', git: 'https://github.com/ashleymills/Reachability.swift'
 
 end
 

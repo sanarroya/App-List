@@ -36,6 +36,8 @@
 		D96932911CCF45A50082531F /* RealmLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96932901CCF45A50082531F /* RealmLogic.swift */; };
 		D96932931CCF45B20082531F /* RealmOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96932921CCF45B20082531F /* RealmOperations.swift */; };
 		D98B5FEC1CD3BE7500663B33 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98B5FEB1CD3BE7400663B33 /* AppColors.swift */; };
+		D9AACCA11CD51A2E001F3844 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AACCA01CD51A2E001F3844 /* Validator.swift */; };
+		D9AACCA31CD51AE5001F3844 /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AACCA21CD51AE5001F3844 /* InternetConnection.swift */; };
 		E2FDFF6930FA1492FED36340 /* Pods_AppList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBAFB63F93E9D3133A2B0DD9 /* Pods_AppList.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		D96932901CCF45A50082531F /* RealmLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmLogic.swift; sourceTree = "<group>"; };
 		D96932921CCF45B20082531F /* RealmOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmOperations.swift; sourceTree = "<group>"; };
 		D98B5FEB1CD3BE7400663B33 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		D9AACCA01CD51A2E001F3844 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		D9AACCA21CD51AE5001F3844 /* InternetConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
 		DBAFB63F93E9D3133A2B0DD9 /* Pods_AppList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11FE28F2DFD9E4984A64978 /* Pods-AppList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppList/Pods-AppList.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,6 +217,7 @@
 				D96932801CCF2D7E0082531F /* CategoriesCollectionViewController.swift */,
 				D91CD8471CD3644D00F24D5F /* DetailViewController.swift */,
 				D91CD8451CD3596A00F24D5F /* SplashViewController.swift */,
+				D9AACCA01CD51A2E001F3844 /* Validator.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				D96932901CCF45A50082531F /* RealmLogic.swift */,
 				D96932921CCF45B20082531F /* RealmOperations.swift */,
 				D9325C5C1CD08D3900CDE021 /* Animate.swift */,
+				D9AACCA21CD51AE5001F3844 /* InternetConnection.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -374,7 +380,7 @@
 				TargetAttributes = {
 					D969323D1CCF27500082531F = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = CD94MQTQ3X;
+						DevelopmentTeam = SFVRA5WZ6U;
 					};
 					D96932511CCF27500082531F = {
 						CreatedOnToolsVersion = 7.3;
@@ -508,7 +514,9 @@
 				D96932851CCF31190082531F /* AppInfoMaping.swift in Sources */,
 				D91CD83C1CD33AEA00F24D5F /* AppsViewModel.swift in Sources */,
 				D969328D1CCF454D0082531F /* Category.swift in Sources */,
+				D9AACCA11CD51A2E001F3844 /* Validator.swift in Sources */,
 				D91CD83E1CD33D5F00F24D5F /* AppListAppearance.swift in Sources */,
+				D9AACCA31CD51AE5001F3844 /* InternetConnection.swift in Sources */,
 				D91CD8461CD3596A00F24D5F /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

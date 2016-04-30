@@ -28,6 +28,12 @@ class DetailViewController: UIViewController {
         super.viewWillAppear(animated)
         configureView()
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        appSumaryLabel.scrollRangeToVisible(NSMakeRange(0, 0))
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,8 +54,8 @@ class DetailViewController: UIViewController {
         logoImageView.layer.cornerRadius = 8.0
         logoImageView.clipsToBounds = true
         nameLabel.text = detailViewModel.appInfo?.name
-        moreAppsButton.setTitle("More apps " + (detailViewModel.appInfo?.artistName)!, forState: .Normal)
-        releasedDateLabel.text = "Released date: " + (detailViewModel.appInfo?.releaseDate)!
+        moreAppsButton.setTitle("More apps by " + (detailViewModel.appInfo?.artistName)!, forState: .Normal)
+        releasedDateLabel.text = (detailViewModel.appInfo?.releaseDate)!
         appSumaryLabel.text = detailViewModel.appInfo?.summary
         navigationItem.title = "App Summary"
         
