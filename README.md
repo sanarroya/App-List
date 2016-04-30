@@ -37,3 +37,9 @@ Used as database of the app
 Rx is a generic abstraction of computation expressed through ```Observable<Element>``` interface. This library was used in conjunction with Alamofire to handle the request to the API
 
 [RxSwift documentation](https://github.com/ReactiveX/RxSwift/blob/master/Documentation/GettingStarted.md)
+
+####Reachability
+
+This library is used to check if the user has internet connection or not
+
+[Reachability documentation](https://github.com/ashleymills/Reachability.swift)
