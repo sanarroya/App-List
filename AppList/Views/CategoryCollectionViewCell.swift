@@ -12,12 +12,17 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var categoryName: UILabel!
     
+    /**
+     General configuration of the Cell
+     
+     - parameter category: Name of the category
+     */
     func configureCellWithCategory(category: String) {
         self.categoryName.text = category
         
         switch UIDevice.currentDevice().userInterfaceIdiom {
         case .Pad:
-            self.categoryName.font = self.categoryName.font.fontWithSize(40.0)
+            self.categoryName.font = self.categoryName.font.fontWithSize(30.0)
             self.categoryName.textAlignment = .Center
             break
         default:
@@ -27,7 +32,9 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         
     }
     
-    
+    /**
+     Configures the cells layer
+     */
     private func configureCellLayer() {
         
         layer.cornerRadius = 8.0

@@ -8,42 +8,20 @@
 
 import UIKit
 
-protocol AppSelectionDelegate: class {
-    func appSelected(app: AppInfo)
-}
-
-
 class AppsCollectionViewController: UICollectionViewController {
 
     let appsViewModel = AppsViewModel()
     private let reuseIdentifier = "Cell"
-    static var delegate : AppSelectionDelegate!
+    private let ipadReuseIdentifier = "IpadCell"
     var detailViewController: DetailViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backButton = UIBarButtonItem(image: UIImage(named: "back"), style: .Plain, target: self, action: #selector(goBack))
-        navigationItem.leftBarButtonItem = backButton
-        let appSplitViewController = splitViewController as! AppListSplitViewController
-        detailViewController = appSplitViewController.childViewControllers.last as! DetailViewController
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -55,7 +33,15 @@ class AppsCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! AppCollectionViewCell
+        var cell = AppCollectionViewCell()
+        
+        switch UIDevice.currentDevice().userInterfaceIdiom {
+        case .Phone:
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! AppCollectionViewCell
+        default:
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier(ipadReuseIdentifier, forIndexPath: indexPath) as! AppCollectionViewCell
+        }
+        
         let app = appsViewModel.currentApps[indexPath.row]
         cell.configureCellWithApp(app)
         Animate.cellAparation(cell)
@@ -63,16 +49,40 @@ class AppsCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
         let selectedApp = appsViewModel.currentApps[indexPath.row]
-//        AppsCollectionViewController.delegate.appSelected(selectedApp)
-        print("algo")
-        let appSplitViewController = splitViewController as! AppListSplitViewController
-        detailViewController?.detailViewModel.appInfo = selectedApp
-        appSplitViewController.showDetailViewController(detailViewController!, sender: nil)
+        Animate.cellSelected(cell!, animationFinished: {
+            
+            self.performSegueWithIdentifier("showAppInfo", sender: selectedApp)
+        })
+        
+
     }
     
-
-    func goBack() {
-        self.performSegueWithIdentifier("goBack", sender: nil)
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 10.0
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 10.0
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
+        switch UIDevice.currentDevice().userInterfaceIdiom {
+        case .Phone:
+            return CGSizeMake(collectionView.frame.width - 20.0, 60.0)
+        default:
+            let cellWidth = (collectionView.frame.width / 4.0) - 20.0
+            return CGSizeMake(cellWidth, cellWidth)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "showAppInfo") {
+            let detailViewController = segue.destinationViewController as! DetailViewController
+            let app = sender as! AppInfo
+            detailViewController.detailViewModel.appInfo = app
+        }
     }
 }

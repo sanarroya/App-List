@@ -24,6 +24,13 @@ class AppInfo: Object {
     dynamic var category: String = ""
     dynamic var link: String = ""
     
+    /**
+     Initializes the object from an AppInfoMapping object
+     
+     - parameter appInfo: Mapping object with the information need to initialize the object
+     
+     - returns: Object initialized
+     */
     convenience init(appInfo: AppInfoMapping) {
         self.init()
         self.name = appInfo.name.value!

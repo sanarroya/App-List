@@ -21,7 +21,6 @@ class CategoriesCollectionViewController: UICollectionViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -70,13 +69,9 @@ class CategoriesCollectionViewController: UICollectionViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "showApps") {
-            let splitViewController = segue.destinationViewController as! AppListSplitViewController
-            let appListController = splitViewController.childViewControllers.first!.childViewControllers.first as! AppsCollectionViewController
-            let detailViewController = splitViewController.childViewControllers.last as! DetailViewController
-            
+            let appListController = segue.destinationViewController as! AppsCollectionViewController
             let apps = sender as! Results<AppInfo>
             appListController.appsViewModel.currentApps = apps
-            detailViewController.detailViewModel.appInfo = apps.first!
         }
     }
     

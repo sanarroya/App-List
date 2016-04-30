@@ -15,6 +15,14 @@ class Category: Object {
     dynamic var name = ""
     var apps = List<AppInfo>()
     
+    /**
+     Initializes the object from a list of apps and a name
+     
+     - parameter name: Name of the category
+     - parameter apps: Apps in the category
+     
+     - returns: Object initialized
+     */
     convenience init(name: String, apps: List<AppInfo>) {
         self.init()
         self.name = name

@@ -45,11 +45,13 @@ class DetailViewController: UIViewController {
     private func configureView() {
         
         logoImageView.kf_setImageWithURL(NSURL(string: (detailViewModel.appInfo?.largeImage)!)!, placeholderImage: nil, optionsInfo: nil)
-        logoImageView.layer.cornerRadius = 8.0 
+        logoImageView.layer.cornerRadius = 8.0
+        logoImageView.clipsToBounds = true
         nameLabel.text = detailViewModel.appInfo?.name
-        moreAppsButton.setTitle("More apps from " + (detailViewModel.appInfo?.artistName)!, forState: .Normal)
+        moreAppsButton.setTitle("More apps " + (detailViewModel.appInfo?.artistName)!, forState: .Normal)
         releasedDateLabel.text = "Released date: " + (detailViewModel.appInfo?.releaseDate)!
         appSumaryLabel.text = detailViewModel.appInfo?.summary
+        navigationItem.title = "App Summary"
         
     }
     
@@ -60,13 +62,5 @@ class DetailViewController: UIViewController {
      */
     private func openWebsiteInSafariViewControllerForURL(urlString: String) {
         UIApplication.sharedApplication().openURL(NSURL(string: urlString)!)
-    }
-}
-
-extension DetailViewController: AppSelectionDelegate {
-    func appSelected(app: AppInfo) {
-        detailViewModel.appInfo = app
-        print("delegate")
-        configureView()
     }
 }

@@ -12,9 +12,9 @@ import UIKit
 class Animate {
     
     /**
-     <#Description#>
+     Animates the aparition of a cell
      
-     - parameter cell: <#cell description#>
+     - parameter cell: Cell to animate
      */
     class func cellAparation(cell: UICollectionViewCell) {
         
@@ -23,16 +23,13 @@ class Animate {
         UIView.animateWithDuration(0.5, delay: 0.4, options: [.CurveEaseOut, .LayoutSubviews], animations: {
             cell.frame = finalCellFrame
         }, completion: nil)
-//    UIView.animateWithDuration(0.5) {
-//            cell.frame = finalCellFrame
-//        }
     }
     
     /**
-     <#Description#>
+     Animates the cell when is cellected
      
-     - parameter cell:              <#cell description#>
-     - parameter animationFinished: <#animationFinished description#>
+     - parameter cell:              Cell to animate
+     - parameter animationFinished: Completion handler indicated the event is over
      */
     class func cellSelected(cell: UICollectionViewCell, animationFinished:() -> ()) {
         
@@ -57,11 +54,20 @@ class Animate {
             UIView.animateWithDuration(0.2, animations: {
                 cell.frame = currentFrame
                 cell.layer.shadowPath = currentLayer
-                animationFinished()
+                
+                }, completion: { finished in
+                    animationFinished()
             })
         })
     }
     
+    /**
+     Gets the initial x coordinate to animate the aparition of a cell
+     
+     - parameter x: Final x coordinate
+     
+     - returns: Initial x coordinate
+     */
     private func cellInitialCoordinate(x: CGFloat) -> CGFloat {
         
         let screenWidth = UIScreen.mainScreen().bounds.width

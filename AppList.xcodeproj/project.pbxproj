@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D91CD83A1CD32E7D00F24D5F /* AppListSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91CD8391CD32E7D00F24D5F /* AppListSplitViewController.swift */; };
 		D91CD83C1CD33AEA00F24D5F /* AppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91CD83B1CD33AEA00F24D5F /* AppsViewModel.swift */; };
 		D91CD83E1CD33D5F00F24D5F /* AppListAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91CD83D1CD33D5F00F24D5F /* AppListAppearance.swift */; };
 		D91CD8421CD347DC00F24D5F /* AppsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91CD8411CD347DC00F24D5F /* AppsCollectionViewController.swift */; };
@@ -59,7 +58,6 @@
 
 /* Begin PBXFileReference section */
 		CEEB86FAF9A1A8950CD91E1B /* Pods-AppList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppList.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppList/Pods-AppList.release.xcconfig"; sourceTree = "<group>"; };
-		D91CD8391CD32E7D00F24D5F /* AppListSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppListSplitViewController.swift; sourceTree = "<group>"; };
 		D91CD83B1CD33AEA00F24D5F /* AppsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsViewModel.swift; sourceTree = "<group>"; };
 		D91CD83D1CD33D5F00F24D5F /* AppListAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppListAppearance.swift; sourceTree = "<group>"; };
 		D91CD8411CD347DC00F24D5F /* AppsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsCollectionViewController.swift; sourceTree = "<group>"; };
@@ -211,11 +209,10 @@
 		D96932701CCF29250082531F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D96932801CCF2D7E0082531F /* CategoriesCollectionViewController.swift */,
-				D91CD8391CD32E7D00F24D5F /* AppListSplitViewController.swift */,
 				D91CD8411CD347DC00F24D5F /* AppsCollectionViewController.swift */,
-				D91CD8451CD3596A00F24D5F /* SplashViewController.swift */,
+				D96932801CCF2D7E0082531F /* CategoriesCollectionViewController.swift */,
 				D91CD8471CD3644D00F24D5F /* DetailViewController.swift */,
+				D91CD8451CD3596A00F24D5F /* SplashViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -505,7 +502,6 @@
 				D98B5FEC1CD3BE7500663B33 /* AppColors.swift in Sources */,
 				D969328F1CCF45720082531F /* AppInfo.swift in Sources */,
 				D96932871CCF33D40082531F /* AppImagesMapping.swift in Sources */,
-				D91CD83A1CD32E7D00F24D5F /* AppListSplitViewController.swift in Sources */,
 				D969328B1CCF341D0082531F /* AppArtistMapping.swift in Sources */,
 				D969327F1CCF2D530082531F /* CategoriesViewModel.swift in Sources */,
 				D96932421CCF27500082531F /* AppDelegate.swift in Sources */,
